@@ -123,7 +123,7 @@ python mapit_selenium.py "India Gate"
 ## 🧑‍💻 Author
 
 **Harshita Arora**
-[GitHub](https://github.com/Harshitaaarora) • [LinkedIn]([https://linkedin.com/in/your-link](https://www.linkedin.com/in/harshita-arora-991138227/))
+[GitHub](https://github.com/Harshitaaarora) • [LinkedIn](https://www.linkedin.com/in/harshita-arora-991138227/)
 
 ---
 
