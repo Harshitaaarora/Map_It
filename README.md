@@ -1,5 +1,5 @@
 
-```markdown
+
 # 🗺️ Map_IT
 
 **Map_IT** is a smart automation tool for quickly opening Google Maps with your desired location. No more manually opening the browser, typing the address, and pressing enter. With Map_IT, just run a script and your destination is loaded instantly—either by copying it to the clipboard or by passing it via the command line.
