@@ -1,111 +1,136 @@
 
-````markdown
+```markdown
 # 🗺️ Map_IT
 
-Map_IT is a lightweight automation tool that streamlines the process of searching for locations on Google Maps. Instead of manually opening Google Maps and typing a destination, Map_IT allows users to search for locations by either:
-
-- Copying an address to the system clipboard
-- Passing the destination as a command-line argument
-
-With Map_IT, navigation becomes quicker, cleaner, and more efficient — perfect for power users or those who just want to save time.
+**Map_IT** is a smart automation tool for quickly opening Google Maps with your desired location. No more manually opening the browser, typing the address, and pressing enter. With Map_IT, just run a script and your destination is loaded instantly—either by copying it to the clipboard or by passing it via the command line.
 
 ---
 
 ## 🚀 Features
 
-- 🔍 Automatically opens Google Maps with the provided destination
-- 📋 Detects location from clipboard if no arguments are passed
-- 🧠 Smart fallback mechanism for improved usability
-- 🖥️ Simple command-line interface (CLI)
-- 🐍 Built with Python for maximum compatibility
+- 🔍 Opens Google Maps instantly with the address you provide.
+- 📋 Reads the address from clipboard (if no arguments are passed).
+- 🧭 Two implementations:
+  - `mapit_webbrowser.py`: Simple and fast using `webbrowser` and `pyperclip`.
+  - `mapit_selenium.py`: Simulates real typing using a browser automation tool (Selenium).
 
 ---
 
-## 🛠️ Installation
+## 📁 Project Structure
 
-1. Clone the repository:
+```
 
-```bash
-git clone https://github.com/your-username/Map_IT.git
-cd Map_IT
+Map\_IT/
+├── mapit\_webbrowser.py    # Implementation using webbrowser & pyperclip
+├── mapit\_selenium.py      # Implementation using Selenium
+├── requirements.txt       # Dependencies (for Selenium version)
+└── README.md              # This documentation
+
 ````
 
-2. Install the required packages:
+---
+
+## 💻 Installation
+
+### ✅ For `mapit_webbrowser.py`
+
+Install `pyperclip` (if not already installed):
 
 ```bash
-pip install -r requirements.txt
+pip install pyperclip
+````
+
+### ✅ For `mapit_selenium.py`
+
+Install Selenium and make sure you have the appropriate Chrome WebDriver installed.
+
+```bash
+pip install selenium
 ```
 
-> Dependencies may include:
->
-> * `pyperclip`
-> * `webbrowser`
-> * `sys`
+Download the [ChromeDriver](https://sites.google.com/chromium.org/driver/) matching your Chrome version and ensure it's in your system PATH.
 
 ---
 
-## 💡 Usage
+## ⚙️ Usage
 
-You can use Map\_IT in two ways:
+### 📌 Option 1: Using Clipboard (Only `mapit_webbrowser.py`)
 
-### Option 1: Using the Clipboard
-
-Just copy any address to your clipboard and run:
-
-```bash
-python map_it.py
-```
-
-### Option 2: Using Command-Line Arguments
-
-Provide the address as a command-line argument:
+1. Copy any address (e.g., 1600 Amphitheatre Parkway Mountain View CA)
+2. Run:
 
 ```bash
-python map_it.py 1600 Amphitheatre Parkway Mountain View CA
+python mapit_webbrowser.py
 ```
+
+This opens the address directly in your default browser via Google Maps.
 
 ---
 
-## 🧠 How It Works
-
-* If a destination is passed as an argument, it takes priority.
-* If no arguments are passed, Map\_IT will attempt to read from the system clipboard.
-* It then automatically opens the default web browser and navigates to Google Maps with the search results for the given location.
-
----
-
-## 📂 File Structure
-
-```
-Map_IT/
-├── map_it.py           # Main script
-├── README.md           # Project documentation
-└── requirements.txt    # Python dependencies
-```
-
----
-
-## 📌 Example
+### 📌 Option 2: Using Command Line Argument (Both scripts)
 
 ```bash
-$ python map_it.py Statue of Liberty New York
+python mapit_webbrowser.py Statue of Liberty NY
 ```
 
-✅ Opens your default browser and navigates to:
-[https://www.google.com/maps/place/Statue+of+Liberty,+New+York](https://www.google.com/maps/place/Statue+of+Liberty,+New+York)
+or
+
+```bash
+python mapit_selenium.py Eiffel Tower Paris
+```
+
+This opens Google Maps with the specified destination.
+
+---
+
+## ⚙️ How They Work
+
+### `mapit_webbrowser.py`:
+
+* Uses `sys.argv` to check for CLI input.
+* If not present, falls back to clipboard using `pyperclip`.
+* Opens the map in your default web browser via `webbrowser.open()`.
+
+### `mapit_selenium.py`:
+
+* Uses Selenium to launch Chrome.
+* Opens Google Maps.
+* Locates the search input and simulates typing the destination.
+* Hits "Enter" to search automatically.
+
+---
+
+## 🧪 Example
+
+```bash
+python mapit_webbrowser.py "India Gate"
+```
+
+Or copy "India Gate" to clipboard and run:
+
+```bash
+python mapit_webbrowser.py
+```
+
+For Selenium:
+
+```bash
+python mapit_selenium.py "India Gate"
+```
 
 ---
 
 ## 🧑‍💻 Author
 
-**Harshita Arora**
-[GitHub](https://github.com/Harshitaaarora) | [LinkedIn]([https://linkedin.com/in/your-link](https://www.linkedin.com/in/harshita-arora-991138227/))
-
+**Your Name**
+[GitHub](https://github.com/Harshitaaarora) • [LinkedIn]([https://linkedin.com/in/your-link](https://www.linkedin.com/in/harshita-arora-991138227/))
 
 ---
 
+
+
 ## 🤝 Contributions
 
-Contributions, issues, and feature requests are welcome!
-Feel free to fork the repo and submit a pull request.
+Feel free to fork the repository and submit a pull request to improve Map\_IT. Suggestions and feature requests are welcome!
 
+---
